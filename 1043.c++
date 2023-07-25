@@ -6,13 +6,7 @@
 using namespace std;
  
 int main() {
- 
-    /**
-     * Escreva a sua solução aqui
-     * Code your solution here
-     * Escriba su solución aquí
-     */
-    
+
     std::list<int> list;
     float n1, n2, n3;
     cout << fixed << setprecision(1);
