@@ -17,10 +17,9 @@ int main() {
 
         cin >> pa >> pb >> ga >> gb;
 
-
         int cont = 0;
 
-        while(pa < pb){
+        while(pa <= pb){
             cont++;
             int a = pa * (ga/100);
             pa = pa + a;
@@ -29,16 +28,14 @@ int main() {
                 int b = pb * (gb/100);
                 pb = pb + b;
             }
-            else{
-                cont++;
-            }
             
         }
+        
         if(cont > 100){
             cout << "Mais de 1 seculo." << endl;
         }
         else{
-            cout << cont <<" Anos." <<endl;
+            cout << cont <<" anos." <<endl;
         }
         cont = 0;
 
