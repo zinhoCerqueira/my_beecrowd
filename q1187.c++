@@ -19,7 +19,7 @@ int main() {
         for(int j = 0; j<12; j++){
             cin >> m[i][j];
 
-            if(i + j > 11){
+            if(i + j < 11 && j > i){
                 res = res + m[i][j];
                 cont++;
             } 
