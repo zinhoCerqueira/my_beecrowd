@@ -73,3 +73,24 @@ print("Melhor indivíduo encontrado na geração {}:".format(best_generation))
 print("Sequência:", best_individual)
 print("Soma da sequência:", sum(best_individual))
 print("Valor de aptidão:", best_fitness)
+
+
+class Veiculo {
+    public void andar() {
+        System.out.println("O veículo está em movimento.");
+    }
+}
+
+class Bicicleta extends Veiculo {
+    @Override
+    public void andar() {
+        System.out.println("A bicicleta está pedalando.");
+    }
+}
+
+class Carro extends Veiculo {
+    @Override
+    public void andar() {
+        System.out.println("O carro está acelerando.");
+    }
+}
