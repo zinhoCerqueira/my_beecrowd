@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 #include <iomanip>
 #include <list>
 #include <string>
@@ -7,13 +7,22 @@
 using namespace std;
  
 int main() {
+    int a, b, maior;
 
-    int a, b, c, d;
+    cin >> a >> b;
 
-    cin >> a >> b >> c >> d;
+    maior = a;
 
-    cout << (a + b + c + d) - 3 << endl;
-
+    if(maior < b){
+        maior = b;
+        cout << maior << endl;
+    }
+    else if(maior > b){
+        cout << a << endl;
+    }
+    else{
+        cout << a << endl;
+    }
     return 0;
     
 }
