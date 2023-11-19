@@ -25,24 +25,32 @@ int main(){
             anterior = atual;
             cin >> atual;
 
-            if(maior_anterior){
+            if(anterior != atual){
+                if(maior_anterior){
 
-                if(anterior > atual && v1){
-                    ok = false;
-                    v1 = false;
+                    if(anterior > atual && v1){
+                        ok = false;
+                        v1 = false;
+                    }
+
+                    maior_anterior = !maior_anterior;  
                 }
+                else if(!maior_anterior){
 
-                maior_anterior = !maior_anterior;  
-            }
-            else if(!maior_anterior){
+                    if(anterior < atual && v1){
+                        ok = false;
+                        v1 = false;
+                    }
 
-                if(anterior < atual && v1){
-                    ok = false;
-                    v1 = false;
+                    maior_anterior = !maior_anterior;  
                 }
-
-                maior_anterior = !maior_anterior;  
             }
+            else{
+                ok = false;
+                v1 = false;
+            }
+
+            
         
 
         }
