@@ -17,6 +17,8 @@ int main(){
             soma2 = soma2 + carga*100;
         }
         cout << soma1/soma2 << endl;
+        soma1 = 0;
+        soma2 = 0;
     }
 
     
