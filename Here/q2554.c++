@@ -20,11 +20,12 @@ int main()
         string amigos[n];
 
         v = true;
+        one = true;
         for (int i = 0; i < d; i++)
         {
             cin >> data;
             confirm = true;
-            one = true;
+            
             for (int j = 0; j < n; j++)
             {
                 cin >> amigos[j];
@@ -36,6 +37,7 @@ int main()
                 
             }
             if(confirm && one){
+                confirm = false;
                 cout << data << endl;
                 one = false;
                 v = false;
