@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <list>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
