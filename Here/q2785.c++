@@ -3,46 +3,50 @@
 #include <list>
 #include <cmath>
 #include <string>
+#include <chrono>
 
 using namespace std;
 
 int f(int **mat, int tamanho, int i, int j, list<int> &valores, int andar, int soma){
     
-
+    int a = 999999, b = 999999;
     for(int k = i; k <= j; k++){
         soma = soma + mat[andar][k];
+        // cout << "Numero que esta sendo somado: -> "<< mat[andar][k] << endl;
     }
 
-    cout << "Soma = "<< soma  << " Andar = " << andar << endl;
-
+    
     if((tamanho - 1) == andar){
-        valores.push_back(soma);
-        cout << "OI" << endl;
+        // cout << "Soma = "<< soma  << " Andar = " << andar << endl;
+        return soma;
+    }
+    else{
+        if(i > 0){
+            int aux_i = i - 1;
+            int aux_andar = andar + 1;
+            a = f(mat, tamanho, aux_i, j, valores, aux_andar, soma);
+        }
+
+        if(j < tamanho - 1){
+            int aux_j = j + 1;
+            b = f(mat, tamanho, i, ++j, valores, ++andar, soma);
+        }
+
+        // cout << "A = " << a << "B = " << b << endl;
+        if(a <= b){
+            return a;
+        }
+        else{
+            return b;
+        }
     }
 
-    if(i > 0){
-        f(mat, tamanho, --i, j, valores, ++andar, soma);
-    }
-
-    if(j < tamanho - 1){
-        f(mat, tamanho, i, ++j, valores, ++andar, soma);
-    }
-
-
-    // for (int i = 0; i < tamanho; i++) {
-    //     for (int j = 0; j < tamanho; j++) {
-    //         cout << mat[i][j] << " "; // Acessa o elemento na posição (i, j) da matriz
-    //     }
-    //     cout << endl; // Quebra de linha após imprimir uma linha completa
-    // }
-
-    return soma;
     
 }
 
 int main(){
     
-    
+    int menor = 999999,  retorno;
     int n, andar = 0;
     list<int> valores;
     cin >> n;
@@ -56,21 +60,27 @@ int main(){
 
     for(int i = 0, k; i < n; i++){
         for(int j = 0, k; j < n; j++){
-            cin >> k;
+            scanf("%d", &k);
             matriz[i][j] = k;
         }
     }
+    
 
     for(int i = 0; i < n; i++){
         int soma = 0;
-        cout << "Linha = " << i << endl;
-        f(matriz, n, i, i, valores, andar, soma);
+        // cout << "Coluna = " << i << endl;
+        retorno = f(matriz, n, i, i, valores, andar, soma);
+
+        if(retorno < menor ){
+            menor = retorno;
+        }
         
     }
 
-    for(auto it = valores.begin(); it != valores.end(); ++it) {
-        std::cout << *it << " ";
-    }
+    cout << menor << endl;
+
+       
+
 
     return 0;
 }
