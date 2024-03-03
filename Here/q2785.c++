@@ -13,9 +13,9 @@ int f(int **mat, int tamanho, int i, int j, list<int> &valores, int andar, int s
         soma = soma + mat[andar][k];
     }
 
-    cout << "Soma = "<< soma << " Tamanho = "<< tamanho << " Andar = " << andar << endl;
+    cout << "Soma = "<< soma  << " Andar = " << andar << endl;
 
-    if(tamanho == (andar - 1)){
+    if((tamanho - 1) == andar){
         valores.push_back(soma);
         cout << "OI" << endl;
     }
@@ -63,9 +63,13 @@ int main(){
 
     for(int i = 0; i < n; i++){
         int soma = 0;
-        cout << "Coluna = " << i << endl;
+        cout << "Linha = " << i << endl;
         f(matriz, n, i, i, valores, andar, soma);
         
+    }
+
+    for(auto it = valores.begin(); it != valores.end(); ++it) {
+        std::cout << *it << " ";
     }
 
     return 0;
