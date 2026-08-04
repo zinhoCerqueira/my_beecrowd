@@ -1,4 +1,4 @@
-e, f, c = map(int, input().split())
+l, k, t1, t2, h = map(int, input().split())
 
 empty_bottles = e + f
 drinked = 0
